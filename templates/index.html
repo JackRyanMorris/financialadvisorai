@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="static/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial AdvIsor</title>
+    <style>
+      /* General Page Styling */
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f4e3c7;
+        color: #ff9d00;
+        text-align: center;
+        justify-content: center;
+      }
+
+      /* Header Section */
+      header {
+        background-color: #f4e3c7;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        margin: 0;
+        color: #fe8029;
+        text-shadow: 3px 3px #000;
+        align-self: center;
+        justify-self: center;
+      }
+
+      header p {
+        margin-top: 10px;
+        font-size: 1.2rem;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 50px 20px;
+      }
+
+      .hero h2 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px #000;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      .hero button {
+        background-color: #000;
+        color: #fe8029;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: 0.3s;
+      }
+
+      .hero button:hover {
+        background-color: #ffcc00;
+        color: #000;
+      }
+
+      /* Features Section */
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 50px 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .feature {
+        flex: 1 1 300px;
+        margin: 10px;
+        background-color: #000;
+        padding: 20px;
+        border-radius: 15px;
+        color: #ffcc00;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      }
+
+      .feature h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .feature p {
+        font-size: 1rem;
+      }
+
+      /* Footer Section */
+      footer {
+        background-color: #000;
+        padding: 20px;
+        font-size: 1rem;
+        color: #ffcc00;
+      }
+
+      footer a {
+        color: #ff6600;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+      input[type="text"] {
+        width: 50%;
+        padding: 10px;
+        font-size: small;
+        border-color: rgba(210, 105, 30, 0.597);
+        margin-right: 1%;
+      }
+
+      button[type="submit"] {
+        padding: 10px;
+        background-color: #fe8029;
+        color: white;
+        border-color: rgba(210, 105, 30, 0.597);
+      }
+      p {
+        color: #fe8029;
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        border: 2px solid chocolate;
+        border-radius: 15px;
+        padding: 10px;
+      }
+
+      div[type="output"] {
+        padding-top: 5%;
+      }
+
+      div[type="headerTop"] {
+        align-items: center;
+        justify-self: center;
+        background-color: #f4e3c7;
+      }
+      img {
+        width: 10%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div type="headerTop">
+        <img src="static/FinancialAdvisor.png" alt="Logo" />
+        <h1>AdvIsor</h1>
+      </div>
+      <p>The one memecoin that actually *knows* finance (kinda).</p>
+      <p>
+        Follow us on
+        <a href="https://x.com/FinAdvIsorAI" target="_blank">Twitter</a>
+        | Or visit the
+        <a href="HERE" target="_blank">Pump</a>
+      </p>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <form action="/" method="POST">
+        <input
+          name="prompt"
+          type="text"
+          placeholder="Ask for financial advice..."
+        />
+        <button type="submit">Submit</button>
+      </form>
+      <div type="output">
+        <p id="output">{{ output }}</p>
+      </div>
+
+      <script>
+        // Function to handle text-to-speech
+        function textToSpeech() {
+          // Get the text from the output paragraph
+          const text = document.getElementById("output").innerText;
+
+          // Check if there's any text to speak
+          if (text.trim() !== "") {
+            // Create a SpeechSynthesisUtterance object
+            const speech = new SpeechSynthesisUtterance();
+            speech.text = text;
+            speech.volume = 1; // Volume (0 to 1)
+            speech.rate = 1; // Speed (0.1 to 10)
+            speech.pitch = 1; // Pitch (0 to 2)
+
+            // Speak the text
+            window.speechSynthesis.speak(speech);
+          }
+        }
+
+        // Trigger the text-to-speech once the page loads
+        window.onload = function () {
+          textToSpeech();
+        };
+      </script>
+    </div>
+  </body>
+</html>
